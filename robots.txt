@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sherin-sef-ai.github.io/sitemap.xml 
