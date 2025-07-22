@@ -1,3 +1,18 @@
 User-agent: *
 Allow: /
-Sitemap: https://sherin-sef-ai.github.io/sitemap.xml 
+
+# Allow all search engines to crawl the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
+Sitemap: https://sherin-sef-ai.github.io/my-website/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1 
