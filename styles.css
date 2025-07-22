@@ -465,6 +465,8 @@ section {
     background-color: #f7fafc;
 }
 
+
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1060,6 +1062,8 @@ section {
         gap: 2rem;
     }
 
+
+    
     .projects-grid {
         grid-template-columns: 1fr;
     }
