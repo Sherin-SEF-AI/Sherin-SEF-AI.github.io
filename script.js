@@ -133,6 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
 });
 
+
+
 // Analytics Tracking Functions
 function trackEvent(eventName, parameters = {}) {
     if (typeof gtag !== 'undefined') {
