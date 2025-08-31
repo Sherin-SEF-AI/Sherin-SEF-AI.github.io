@@ -47,8 +47,6 @@ my-website/
    - Choose "main" branch and "/ (root)" folder
    - Click "Save"
 
-Your site will be available at `https://yourusername.github.io`
-
 ### Method 2: Manual Upload
 
 1. Create a new repository on GitHub
