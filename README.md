@@ -151,8 +151,8 @@ Feel free to fork this project and customize it for your own portfolio. If you f
 
 For questions or support, please contact:
 - Email: sherin.joseph2217@gmail.com
-- LinkedIn: [Your LinkedIn Profile]
-- GitHub: [Your GitHub Profile]
+- LinkedIn: https://www.linkedin.com/in/sherin-roy-deepmost/
+- GitHub: https://github.com/Sherin-SEF-AI
 
 ---
 
