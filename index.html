@@ -130,7 +130,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- DevHunt Banner for GitFlow Studio -->
-    <script defer data-url="https://devhunt.org/tool/gitflowstudio" src="https://cdn.jsdelivr.net/gh/sidiDev/devhunt-banner/indexV0.js"></script>
+    <script defer data-url="https://devhunt.org/tool/gitflowstudio" src="https://cdn.jsdelivr.net/gh/DiviDiDev/devhunt-banner/indexV0.js"></script>
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5H3C7Y2V0"></script>
@@ -1557,6 +1557,23 @@
 
     <script src="analytics-config.js"></script>
     <script src="script.js"></script>
+    
+    <!-- DevHunt Banner Script (Alternative placement) -->
+    <script defer data-url="https://devhunt.org/tool/gitflowstudio" src="https://cdn.jsdelivr.net/gh/DiviDiDev/devhunt-banner/indexV0.js"></script>
+    
+    <!-- Fallback DevHunt Banner Script -->
+    <script>
+        // Fallback script to ensure banner loads
+        window.addEventListener('load', function() {
+            if (!document.querySelector('.devhunt-banner')) {
+                console.log('DevHunt banner not found, attempting to load manually...');
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/gh/DiviDiDev/devhunt-banner/indexV0.js';
+                script.setAttribute('data-url', 'https://devhunt.org/tool/gitflowstudio');
+                document.head.appendChild(script);
+            }
+        });
+    </script>
     
     <!-- Gravatar Hovercard JavaScript -->
     <script>
