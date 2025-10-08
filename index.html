@@ -144,10 +144,11 @@
     </script>
 </head>
 <body>
+    <!-- Clean Top Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">SJR</div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#current-work" class="nav-link">Current Work</a></li>
@@ -160,11 +161,10 @@
                 <li><a href="sef.html" class="nav-link">SEF</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-toggle" id="navToggle">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
             </div>
         </div>
     </nav>
@@ -174,11 +174,11 @@
         <section id="home" class="hero">
             <div class="hero-container">
                 <div class="hero-content">
-                    <div class="hero-image">
+                    <div class="hero-image fade-in">
                         <img src="images/sherin-photo.jpg" alt="Sherin Joseph Roy" class="profile-photo">
                     </div>
-                    <h1 class="hero-title">Sherin Joseph Roy</h1>
-                    <p class="hero-subtitle">Startup Founder & Hardware/IoT Enthusiast | SJR</p>
+                    <h1 class="hero-title fade-in">Sherin Joseph Roy</h1>
+                    <p class="hero-subtitle fade-in">Startup Founder & Hardware/IoT Enthusiast | SJR</p>
                     <p class="hero-description">
                         I am Sherin Roy (professionally known as Sherin Joseph Roy) — an entrepreneur and technologist 
                         specializing in AI, machine learning, and safety ecosystems. I founded DeepMost AI, where we 
@@ -186,10 +186,10 @@
                         platform for businesses, and leading development of SEF (Safety Ecosystem Framework) — an 
                         upcoming AI + IoT initiative for public and industrial safety.
                     </p>
-                    <p class="hero-mission">
+                    <p class="hero-mission fade-in">
                         My goal is to build systems that make society safer, smarter, and more interconnected.
                     </p>
-                    <div class="hero-buttons">
+                    <div class="hero-buttons fade-in">
                         <a href="sef.html" class="btn btn-primary">Learn About SEF</a>
                         <a href="#projects" class="btn btn-secondary">View Projects</a>
                         <a href="#contact" class="btn btn-secondary">Get in Touch</a>
@@ -202,6 +202,7 @@
         <section id="about" class="about">
             <div class="container">
                 <h2 class="section-title">About Sherin Joseph Roy</h2>
+                <p class="section-subtitle">Passionate technologist and entrepreneur dedicated to advancing AI and creating impactful solutions</p>
                 <div class="about-content">
                     <div class="about-text">
                         <p>
@@ -242,6 +243,7 @@
         <section id="current-work" class="current-work">
             <div class="container">
                 <h2 class="section-title">Current Work</h2>
+                <p class="section-subtitle">Leading innovation in AI and technology through strategic initiatives and groundbreaking projects</p>
                 <div class="current-work-content">
                     <div class="company-card">
                         <div class="company-info">
@@ -282,6 +284,7 @@
         <section id="achievements" class="achievements">
             <div class="container">
                 <h2 class="section-title">Hardware Achievements</h2>
+                <p class="section-subtitle">Recognized accomplishments in autonomous systems, robotics, and innovative hardware solutions</p>
                 <div class="achievements-grid">
                     <div class="achievement-card">
                         <div class="achievement-icon">
@@ -379,6 +382,7 @@
         <section id="projects" class="projects">
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Innovative solutions spanning robotics, AI, cybersecurity, and software development</p>
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-content">
@@ -1550,6 +1554,7 @@
         <section id="contact" class="contact">
             <div class="container">
                 <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Let's connect and explore opportunities for collaboration and innovation</p>
                 <div class="contact-content">
                     <div class="contact-info">
                         <p>I'm always open to discussing new opportunities, interesting projects, or just having a chat about autonomous systems, robotics, hardware development, and AI innovation.</p>
@@ -1769,6 +1774,105 @@
           }
         };
       })();
+    </script>
+    
+    <!-- Top Navigation JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Toggle mobile menu
+            function toggleMobileMenu() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            }
+            
+            // Close mobile menu
+            function closeMobileMenu() {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+            
+            // Event listeners
+            navToggle.addEventListener('click', toggleMobileMenu);
+            
+            // Close mobile menu when clicking on nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 1023) {
+                        closeMobileMenu();
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 1023) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Add active class to current section
+            function updateActiveNav() {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPos = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }
+            
+            // Update active nav on scroll
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav(); // Initial call
+            
+            // Scroll animations
+            function handleScrollAnimations() {
+                const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+                
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Initial call and scroll listener
+            handleScrollAnimations();
+            window.addEventListener('scroll', handleScrollAnimations);
+        });
     </script>
 </body>
 </html> 
