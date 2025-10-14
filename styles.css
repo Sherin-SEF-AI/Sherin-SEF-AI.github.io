@@ -2389,4 +2389,575 @@ section {
     .achievement-icon {
         align-self: center;
     }
+}
+
+/* ============================================
+   COMPREHENSIVE MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet and Mobile - 1024px and below */
+@media (max-width: 1024px) {
+    /* Navigation */
+    .nav-container {
+        padding: 0 1.5rem;
+    }
+    
+    /* Container adjustments */
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    /* Publications Grid */
+    .publications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    /* Featured Research Section */
+    .featured-research {
+        padding: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .featured-research h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .featured-research p {
+        font-size: 1rem !important;
+    }
+    
+    .featured-research > div:first-child {
+        flex-wrap: wrap;
+    }
+    
+    .featured-research a {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Social Highlights */
+    #social-highlights > div > div {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    #social-highlights > div > div > div {
+        min-width: auto !important;
+    }
+    
+    /* Achievements grid */
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    /* Current work grid */
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile - 768px and below */
+@media (max-width: 768px) {
+    /* Typography */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding-top: 75px;
+        min-height: auto;
+        padding-bottom: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .profile-photo {
+        width: 160px;
+        height: 160px;
+    }
+    
+    /* Navigation */
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+    
+    /* Publications */
+    .publications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .publication-card {
+        margin-bottom: 1rem;
+    }
+    
+    .publication-title {
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+    
+    .publication-excerpt {
+        font-size: 0.9rem;
+    }
+    
+    .publication-tags {
+        gap: 0.5rem;
+    }
+    
+    .publication-tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    /* Featured Research */
+    .featured-research {
+        padding: 1.5rem !important;
+        border-radius: 8px !important;
+    }
+    
+    .featured-research h3 {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .featured-research p {
+        font-size: 0.95rem !important;
+    }
+    
+    .featured-research > div:first-child {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+    
+    .featured-research > div:last-child {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+    
+    .featured-research a {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.875rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Social Media Highlights */
+    #social-highlights {
+        padding: 3rem 0 !important;
+    }
+    
+    #social-highlights .section-title {
+        font-size: 1.8rem;
+    }
+    
+    #social-highlights > div > div > div {
+        padding: 1.5rem !important;
+    }
+    
+    #social-highlights > div > div > div h4 {
+        font-size: 1rem !important;
+    }
+    
+    #social-highlights > div > div > div p {
+        font-size: 0.85rem !important;
+    }
+    
+    #social-highlights > div > div > div > div:nth-child(2) {
+        padding: 1.25rem !important;
+    }
+    
+    #social-highlights > div > div > div > div:nth-child(2) p {
+        font-size: 0.95rem !important;
+    }
+    
+    /* Buttons */
+    .btn {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.875rem 1.5rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* LinkedIn Posts */
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Tech News */
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Resources */
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Contact Section */
+    .contact-content {
+        flex-direction: column;
+    }
+    
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Publications Footer */
+    .publications-footer {
+        text-align: center;
+    }
+    
+    .publications-footer > div {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .publications-footer .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 !important;
+    }
+    
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Achievements */
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Work Grid */
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Mobile - 480px and below */
+@media (max-width: 480px) {
+    /* Typography */
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+        height: 65px;
+    }
+    
+    .navbar {
+        height: 65px;
+    }
+    
+    /* Hero */
+    .hero-container {
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+    }
+    
+    .hero-mission {
+        font-size: 0.95rem;
+        padding: 1rem;
+    }
+    
+    .profile-photo {
+        width: 140px;
+        height: 140px;
+    }
+    
+    /* Navigation */
+    .nav-logo {
+        font-size: 1.3rem;
+    }
+    
+    .nav-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        width: 22px;
+    }
+    
+    /* Featured Research */
+    .featured-research {
+        padding: 1.25rem !important;
+    }
+    
+    .featured-research h3 {
+        font-size: 1.15rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .featured-research p {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .featured-research > div > div {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .featured-research span {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+    
+    .featured-research a {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Publications */
+    .publication-card {
+        padding: 1.25rem;
+    }
+    
+    .publication-title {
+        font-size: 1rem;
+    }
+    
+    .publication-excerpt {
+        font-size: 0.85rem;
+    }
+    
+    .publication-tag {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.7rem;
+    }
+    
+    .publication-platform span,
+    .publication-date {
+        font-size: 0.8rem;
+    }
+    
+    /* Social Media Highlights */
+    #social-highlights {
+        padding: 2.5rem 0 !important;
+    }
+    
+    #social-highlights .section-title {
+        font-size: 1.6rem;
+    }
+    
+    #social-highlights > div > div > div {
+        padding: 1.25rem !important;
+    }
+    
+    #social-highlights > div > div > div > div:first-child {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+    
+    #social-highlights > div > div > div > div:first-child > div:first-child {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    #social-highlights svg {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    #social-highlights h4 {
+        font-size: 0.95rem !important;
+    }
+    
+    #social-highlights > div > div > div > div:nth-child(2) {
+        padding: 1rem !important;
+    }
+    
+    #social-highlights > div > div > div > div:nth-child(2) p {
+        font-size: 0.9rem !important;
+    }
+    
+    #social-highlights a {
+        font-size: 0.9rem !important;
+    }
+    
+    #social-highlights > div > div:last-child p {
+        font-size: 0.9rem !important;
+    }
+    
+    #social-highlights .btn {
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Cards */
+    .project-card,
+    .post-card,
+    .news-card,
+    .resource-card {
+        padding: 1.25rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+/* Extra Small Mobile - 375px and below */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .featured-research h3 {
+        font-size: 1.05rem !important;
+    }
+    
+    .featured-research p {
+        font-size: 0.85rem !important;
+    }
+    
+    .publication-title {
+        font-size: 0.95rem;
+    }
+    
+    .btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 6rem 0 3rem;
+    }
+    
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-mission {
+        margin: 1rem auto;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase touch targets */
+    .nav-link {
+        min-height: 44px;
+        padding: 1rem 1.5rem;
+    }
+    
+    .btn {
+        min-height: 44px;
+    }
+    
+    .publication-link {
+        min-height: 44px;
+        padding: 0.875rem 1.5rem;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .project-card:hover,
+    .post-card:hover,
+    .news-card:hover,
+    .resource-card:hover,
+    .publication-card:hover {
+        transform: none;
+    }
+    
+    /* Add tap highlight */
+    a, button {
+        -webkit-tap-highlight-color: rgba(37, 99, 235, 0.1);
+    }
 } 
