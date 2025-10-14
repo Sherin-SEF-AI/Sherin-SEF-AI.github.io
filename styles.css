@@ -1590,6 +1590,7 @@ section {
 .mastodon .social-icon { background: linear-gradient(135deg, #6364ff, #563acc); }
 .github .social-icon { background: linear-gradient(135deg, #333, #24292e); }
 
+.beehiiv .social-icon { background: linear-gradient(135deg, #ff6b35, #f7931e); }
 .substack .social-icon { background: linear-gradient(135deg, #ff6719, #e55a17); }
 .hashnode .social-icon { background: linear-gradient(135deg, #2962ff, #1e40af); }
 .medium .social-icon { background: linear-gradient(135deg, #00ab6c, #007a52); }
