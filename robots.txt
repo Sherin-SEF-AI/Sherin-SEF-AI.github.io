@@ -12,7 +12,7 @@ User-agent: Slurp
 Allow: /
 
 # Sitemap location
-Sitemap: https://sherin-sef-ai.github.io/my-website/sitemap.xml
+Sitemap: https://sherin-sef-ai.github.io/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1 
