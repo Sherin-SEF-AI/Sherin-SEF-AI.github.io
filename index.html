@@ -2534,37 +2534,6 @@
         });
     </script>
     
-    <!-- Lexeek AI Chat Widget -->
-    <script>
-      (function() {
-        var widget = document.createElement('div');
-        widget.id = 'lexeek-chat-widget-fb3034fa-6cc4-4199-bb15-a92d2101385f';
-        widget.innerHTML = '<div style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #E76F51, #F4A261); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999; transition: all 0.3s ease;"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3.04.97 4.37L1 23l6.63-1.97C9.96 21.64 11.46 22 13 22h.01c5.52 0 9.99-4.48 9.99-10S17.53 2 12.01 2z"/></svg></div>';
-        document.body.appendChild(widget);
-        
-        widget.onmouseover = function() {
-          widget.firstChild.style.transform = 'scale(1.1)';
-        };
-        
-        widget.onmouseout = function() {
-          widget.firstChild.style.transform = 'scale(1)';
-        };
-        
-        widget.onclick = function() {
-          var iframe = document.createElement('iframe');
-          iframe.src = 'https://fvxqhmmxmqjclzpgltdg.supabase.co/functions/v1/chat-widget?websiteId=fb3034fa-6cc4-4199-bb15-a92d2101385f';
-          iframe.style.cssText = 'position: fixed; bottom: 90px; right: 20px; width: 400px; height: 600px; border: none; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); z-index: 10000; background: white;';
-          iframe.id = 'lexeek-chat-iframe-fb3034fa-6cc4-4199-bb15-a92d2101385f';
-          
-          var existingIframe = document.getElementById('lexeek-chat-iframe-fb3034fa-6cc4-4199-bb15-a92d2101385f');
-          if (existingIframe) {
-            existingIframe.remove();
-          } else {
-            document.body.appendChild(iframe);
-          }
-        };
-      })();
-    </script>
     
     <!-- Top Navigation JavaScript -->
     <script>
