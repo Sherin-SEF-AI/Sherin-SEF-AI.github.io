@@ -1,18 +1,62 @@
+# Robots.txt for sherin-sef-ai.github.io
+# Optimized for search engines and AI agents
+
+# Allow all search engines and AI agents
 User-agent: *
 Allow: /
+Allow: /papers/
+Allow: /images/
+Disallow: /index-seo.html
 
-# Allow all search engines to crawl the site
+# Google Search Engine
 User-agent: Googlebot
 Allow: /
+Allow: /papers/
+Allow: /images/
+Crawl-delay: 0
 
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /papers/
+
+# Bing Search Engine
 User-agent: Bingbot
 Allow: /
+Allow: /papers/
+Allow: /images/
+Crawl-delay: 0
 
+# Yahoo Search Engine
 User-agent: Slurp
+Allow: /
+Allow: /papers/
+Allow: /images/
+
+# AI Agents and Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 # Sitemap location
 Sitemap: https://sherin-sef-ai.github.io/sitemap.xml
 
-# Crawl delay (optional)
-Crawl-delay: 1 
+# Host
+Host: https://sherin-sef-ai.github.io 
