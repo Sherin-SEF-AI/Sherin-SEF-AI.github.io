@@ -43,7 +43,7 @@ window.addEventListener('scroll', () => {
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -79,7 +79,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe elements for fade-in animation
 document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.project-card, .about-content, .contact-content');
-    
+
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
-    
+
     function type() {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
@@ -125,8 +125,43 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
-    
+
     setTimeout(() => {
         document.body.style.opacity = '1';
     }, 100);
-}); 
+});
+
+// Video Modal
+function openVideoModal(videoId, title) {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-modal-iframe');
+    const modalTitle = document.getElementById('video-modal-title');
+
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+    modalTitle.textContent = title;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal(event) {
+    if (event && event.target !== document.getElementById('video-modal') &&
+        !event.target.classList.contains('video-modal-close') &&
+        event.target.textContent !== '×') {
+        return;
+    }
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-modal-iframe');
+    modal.classList.remove('open');
+    iframe.src = ''; // stop playback
+    document.body.style.overflow = '';
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('video-modal');
+        if (modal && modal.classList.contains('open')) {
+            closeVideoModal({ target: modal });
+        }
+    }
+});
