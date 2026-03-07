@@ -47,8 +47,6 @@ my-website/
    - Choose "main" branch and "/ (root)" folder
    - Click "Save"
 
-Your site will be available at `https://yourusername.github.io`
-
 ### Method 2: Manual Upload
 
 1. Create a new repository on GitHub
@@ -152,9 +150,7 @@ Feel free to fork this project and customize it for your own portfolio. If you f
 ## 📞 Contact
 
 For questions or support, please contact:
-- Email: sherin.joseph2217@gmail.com
-- LinkedIn: [Your LinkedIn Profile]
-- GitHub: [Your GitHub Profile]
+
 
 ---
 
