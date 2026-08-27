@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sherin Joseph Roy | Computer Vision & Autonomous Driving</title>
 
-<meta name="description" content="Computer vision, on-device autonomy and vehicle reverse engineering: an AV data engine for Indian roads, Android ADAS, visual-inertial SLAM and CAN bus tooling.">
+<meta name="description" content="Multi-sensor data collection, on-device autonomy and CAN reverse engineering: GMSL2 and GNSS RTK rigs, hardware-synced pipelines, ADAS and visual-inertial SLAM.">
 <meta name="author" content="Sherin Joseph Roy">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#08090B" media="(prefers-color-scheme: dark)">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Sherin Joseph Roy">
 <meta property="og:title" content="Sherin Joseph Roy | Computer Vision & Autonomous Driving">
-<meta property="og:description" content="Computer vision, on-device autonomy and vehicle reverse engineering: an AV data engine for Indian roads, Android ADAS, visual-inertial SLAM and CAN bus tooling.">
+<meta property="og:description" content="Multi-sensor data collection, on-device autonomy and CAN reverse engineering: GMSL2 and GNSS RTK rigs, hardware-synced pipelines, ADAS and visual-inertial SLAM.">
 <meta property="og:url" content="https://sherin-sef-ai.github.io/">
 <meta property="og:image" content="https://sherin-sef-ai.github.io/images/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -28,7 +28,7 @@
 <meta name="twitter:site" content="@SherinSEF">
 <meta name="twitter:creator" content="@SherinSEF">
 <meta name="twitter:title" content="Sherin Joseph Roy | Computer Vision & Autonomous Driving">
-<meta name="twitter:description" content="Computer vision, on-device autonomy and vehicle reverse engineering: an AV data engine for Indian roads, Android ADAS, visual-inertial SLAM and CAN bus tooling.">
+<meta name="twitter:description" content="Multi-sensor data collection, on-device autonomy and CAN reverse engineering: GMSL2 and GNSS RTK rigs, hardware-synced pipelines, ADAS and visual-inertial SLAM.">
 <meta name="twitter:image" content="https://sherin-sef-ai.github.io/images/og.jpg">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -68,7 +68,9 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
       "knowsAbout": [
         "Computer vision", "Autonomous driving", "Advanced driver-assistance systems",
         "Automotive reverse engineering", "CAN bus", "Edge AI", "Visual-inertial SLAM",
-        "HD mapping", "Sensor fusion", "Public safety intelligence"
+        "HD mapping", "Sensor fusion", "Public safety intelligence",
+        "Multi-sensor data collection", "GMSL2 cameras", "GNSS RTK positioning",
+        "Inertial measurement", "Hardware time synchronization", "CAN bus integration"
       ],
       "sameAs": [
         "https://github.com/Sherin-SEF-AI",
@@ -289,6 +291,7 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
   <div class="wrap nav__inner">
     <a class="nav__brand" href="/"><span class="nav__dot"></span>Sherin Joseph Roy</a>
     <ul class="nav__links">
+      <li><a href="#data">Data</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#field">Field notes</a></li>
@@ -318,10 +321,10 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
     <p class="eyebrow">Perception · Autonomy · Edge</p>
     <h1>Autonomous systems that run <em>on the device</em>, on Indian roads.</h1>
     <p class="hero__sub">
-      Computer vision, on-device autonomy and vehicle reverse engineering. Data engines,
-      ADAS and visual-inertial SLAM that ship to real hardware, plus CAN bus tooling for
-      the vehicles nobody published a DBC for, and published research on ambient safety
-      intelligence.
+      Computer vision, on-device autonomy and vehicle reverse engineering.
+      Hardware-synced sensor rigs and the data engines they feed, ADAS and visual-inertial
+      SLAM that ship to real hardware, plus CAN bus tooling for the vehicles nobody
+      published a DBC for.
     </p>
     <div class="hero__cta">
       <a class="btn btn--primary" href="#work">See the work<svg><use href="#i-arrow"></use></svg></a>
@@ -386,11 +389,174 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
   </div>
 </section>
 
-<!-- 02 / SELECTED WORK -->
+<!-- 02 / DATA COLLECTION -->
+<section class="section" id="data">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02 / Data collection</span>
+      <h2 class="sec-title">Before the model, the rig</h2>
+      <p class="sec-note">Autonomy is a data problem long before it is a modelling problem. This is the layer everything above it inherits.</p>
+    </div>
+
+    <div class="prose reveal" style="max-width:74ch;margin-bottom:2rem">
+      <p>
+        A perception stack is only ever as honest as the data under it, and on a vehicle that
+        means solving unglamorous problems first: getting many camera heads onto one host
+        without melting the bandwidth budget, getting a position fix you can actually trust,
+        getting an inertial reference good enough to judge everything else against, and getting
+        all of it onto <strong>one clock</strong> so that a frame, a pose and a CAN message
+        recorded at the same instant can be proven to belong together.
+      </p>
+    </div>
+
+    <div class="specs reveal">
+      <div class="spec">
+        <p class="spec__k">Cameras</p>
+        <p class="spec__v">GMSL2</p>
+        <p class="spec__d">Automotive serialized video over a single coax, so multiple camera heads run at real cable lengths without the bandwidth and EMI problems that USB and raw MIPI hit on a vehicle. Deserializer boards aggregate the array onto one capture host with a shared frame trigger.</p>
+      </div>
+      <div class="spec">
+        <p class="spec__k">Positioning</p>
+        <p class="spec__v">GNSS RTK</p>
+        <p class="spec__d">Real-time kinematic fixes from NTRIP correction streams, with the raw observables (pseudorange, carrier phase, Doppler) logged alongside. That keeps post-processed kinematic solutions available later, and lets GNSS enter a factor graph as a measurement rather than as a black-box fix.</p>
+      </div>
+      <div class="spec">
+        <p class="spec__k">Inertial</p>
+        <p class="spec__v">Xsens IMU</p>
+        <p class="spec__d">Industrial MTi-series inertial measurement with characterised bias stability and factory calibration. It is both the source of preintegrated motion constraints between camera keyframes and the reference that phone-grade IMUs get evaluated against.</p>
+      </div>
+      <div class="spec">
+        <p class="spec__k">Vehicle</p>
+        <p class="spec__v">CAN integration</p>
+        <p class="spec__d">Speed, steering angle, wheel ticks, gear and brake state taken off the bus and stamped into the same log as the sensors. On vehicles with no public signal definitions, the DBC is derived and validated before anything downstream is allowed to depend on it.</p>
+      </div>
+      <div class="spec">
+        <p class="spec__k">Timing</p>
+        <p class="spec__v">Hardware sync</p>
+        <p class="spec__d">One clock domain. GNSS PPS disciplines the host, camera exposure is triggered from a common source, and every sample carries a timestamp on the same monotonic base. Alignment becomes a property of the rig instead of a post-processing guess.</p>
+      </div>
+      <div class="spec">
+        <p class="spec__k">Logging</p>
+        <p class="spec__v">MCAP / Foxglove</p>
+        <p class="spec__d">Sessions land as standards-compliant MCAP that opens in Foxglove with zero manual offset, replays through the exact live pipeline, and carries its calibration and metadata with it. Recordings stay useful years after the drive.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:2rem">
+      <div class="diagram">
+        <svg viewBox="0 0 1088 150" role="img" aria-label="Data collection pipeline: sensors, hardware sync, MCAP log, calibration, dataset, deployment, with failures replaying back into the log"><defs><marker id="dh" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path class="d-arrow" d="M0 0 7 3.5 0 7z"/></marker></defs><rect class="d-box" x="0" y="34" width="148" height="52" rx="3"/><text class="d-lab" x="74" y="56" text-anchor="middle">SENSORS</text><text class="d-sub" x="74" y="72" text-anchor="middle">cam · gnss · imu · can</text><line class="d-acc" x1="154" y1="60" x2="180" y2="60" marker-end="url(#dh)"/><rect class="d-box" x="188" y="34" width="148" height="52" rx="3"/><text class="d-lab" x="262" y="56" text-anchor="middle">SYNC</text><text class="d-sub" x="262" y="72" text-anchor="middle">pps · trigger · 1 clock</text><line class="d-acc" x1="342" y1="60" x2="368" y2="60" marker-end="url(#dh)"/><rect class="d-box" x="376" y="34" width="148" height="52" rx="3"/><text class="d-lab" x="450" y="56" text-anchor="middle">LOG</text><text class="d-sub" x="450" y="72" text-anchor="middle">mcap · foxglove</text><line class="d-acc" x1="530" y1="60" x2="556" y2="60" marker-end="url(#dh)"/><rect class="d-box" x="564" y="34" width="148" height="52" rx="3"/><text class="d-lab" x="638" y="56" text-anchor="middle">CALIBRATE</text><text class="d-sub" x="638" y="72" text-anchor="middle">intrinsics · extrinsics</text><line class="d-acc" x1="718" y1="60" x2="744" y2="60" marker-end="url(#dh)"/><rect class="d-box" x="752" y="34" width="148" height="52" rx="3"/><text class="d-lab" x="826" y="56" text-anchor="middle">DATASET</text><text class="d-sub" x="826" y="72" text-anchor="middle">label · gate · mine</text><line class="d-acc" x1="906" y1="60" x2="932" y2="60" marker-end="url(#dh)"/><rect class="d-box" x="940" y="34" width="148" height="52" rx="3"/><text class="d-lab" x="1014" y="56" text-anchor="middle">DEPLOY</text><text class="d-sub" x="1014" y="72" text-anchor="middle">edge · shadow · replay</text><path class="d-line" d="M1014 92 v22 H450 v-22" marker-end="url(#dh)"/><text class="d-sub" x="732" y="130" text-anchor="middle">failures and rare events replay back into the log</text></svg>
+      </div>
+    </div>
+
+    <h3 class="mono dim reveal" style="margin:3rem 0 1rem">The pathway to self-driving</h3>
+
+    <div class="ladder reveal">
+      <div class="rung" data-cat="av">
+        <span class="rung__n">01</span>
+        <div>
+          <p class="rung__h">Capture</p>
+          <p class="rung__d">A hardware-synchronised multi-sensor rig producing recordings whose timing you can defend. Phones become acquisition devices where fleet scale matters more than sensor grade.</p>
+        </div>
+        <div class="rung__sys">
+          <a href="https://github.com/Sherin-SEF-AI/CHRONYX-CORE" rel="noopener">CHRONYX-CORE</a>
+          <a href="https://github.com/Sherin-SEF-AI/DriveLogger" rel="noopener">DriveLogger</a>
+          <a href="https://github.com/Sherin-SEF-AI/Orvex" rel="noopener">Orvex</a>
+        </div>
+      </div>
+
+      <div class="rung" data-cat="av">
+        <span class="rung__n">02</span>
+        <div>
+          <p class="rung__h">Ground truth</p>
+          <p class="rung__d">Calibration, telemetry extraction and time alignment turn raw recordings into a dataset. Domain-gap evaluation says how far the footage sits from what a model was trained on.</p>
+        </div>
+        <div class="rung__sys">
+          <a href="https://github.com/Sherin-SEF-AI/Orvex" rel="noopener">Orvex</a>
+          <a href="https://github.com/Sherin-SEF-AI/DriveLab" rel="noopener">DriveLab</a>
+        </div>
+      </div>
+
+      <div class="rung" data-cat="av">
+        <span class="rung__n">03</span>
+        <div>
+          <p class="rung__h">Label and govern</p>
+          <p class="rung__d">Machine labels pass a calibrated confidence gate into human review, rare and risky moments are mined out of the rest, and the models retrain in a closed loop over one governed ontology.</p>
+        </div>
+        <div class="rung__sys">
+          <a href="work/labeloxav.html">LabeloxAV</a>
+        </div>
+      </div>
+
+      <div class="rung" data-cat="av">
+        <span class="rung__n">04</span>
+        <div>
+          <p class="rung__h">Perceive on the device</p>
+          <p class="rung__d">Detection, drivable-area segmentation and tracking running inside the power and thermal envelope of the target hardware, not on a workstation.</p>
+        </div>
+        <div class="rung__sys">
+          <a href="https://github.com/Sherin-SEF-AI/Lyne-ADAS" rel="noopener">Lyne ADAS</a>
+          <a href="https://github.com/Sherin-SEF-AI/Zyra-ADAS" rel="noopener">Zyra ADAS</a>
+          <a href="https://github.com/Sherin-SEF-AI/RabbitAV" rel="noopener">RabbitAV</a>
+        </div>
+      </div>
+
+      <div class="rung" data-cat="av">
+        <span class="rung__n">05</span>
+        <div>
+          <p class="rung__h">Localise and map</p>
+          <p class="rung__d">A pose you own rather than one a vendor SDK hands you: visual features, IMU preintegration and raw GNSS fused in a factor graph, feeding lane-level HD maps in standard formats.</p>
+        </div>
+        <div class="rung__sys">
+          <a href="https://github.com/Sherin-SEF-AI/ODYX-VISUAL-SLAM" rel="noopener">ODYX</a>
+          <a href="https://github.com/Sherin-SEF-AI/LANYX" rel="noopener">LANYX</a>
+          <a href="https://github.com/Sherin-SEF-AI/Blurabbit-HDMAP" rel="noopener">Blurabbit HD-MAP</a>
+        </div>
+      </div>
+
+      <div class="rung" data-cat="av">
+        <span class="rung__n">06</span>
+        <div>
+          <p class="rung__h">Certify the ODD</p>
+          <p class="rung__d">Score the road, and score your own ability to see it. Per corridor, per hour, per weather condition, which stretches are viable for vision-based autonomy and which dimension fails where.</p>
+        </div>
+        <div class="rung__sys">
+          <a href="https://github.com/Sherin-SEF-AI/CORRIDYX" rel="noopener">CORRIDYX</a>
+        </div>
+      </div>
+
+      <div class="rung" data-cat="re">
+        <span class="rung__n">07</span>
+        <div>
+          <p class="rung__h">Reach the vehicle</p>
+          <p class="rung__d">Nothing actuates until the bus is understood. Signal definitions derived and proven from capture, then diagnostics and integration on top of a DBC that has been validated rather than assumed.</p>
+        </div>
+        <div class="rung__sys">
+          <a href="work/canlab.html">CanLab</a>
+          <a href="https://github.com/Sherin-SEF-AI/BluCANRE" rel="noopener">BluCANRE</a>
+          <a href="https://github.com/Sherin-SEF-AI/canmcpd" rel="noopener">canmcpd</a>
+        </div>
+      </div>
+
+      <div class="rung" data-cat="cv">
+        <span class="rung__n">08</span>
+        <div>
+          <p class="rung__h">Shadow, then trust</p>
+          <p class="rung__d">Run the stack alongside the driver and compare what it would have done with what actually happened. Disagreements become the next round of mined data, and the loop closes.</p>
+        </div>
+        <div class="rung__sys">
+          <a href="https://github.com/Sherin-SEF-AI/Zyra-ADAS" rel="noopener">Zyra ADAS</a>
+          <a href="work/deepgent.html">deepgent</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 / SELECTED WORK -->
 <section class="section" id="work">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">02 / Selected work</span>
+      <span class="sec-num">03 / Selected work</span>
       <h2 class="sec-title">28 systems</h2>
       <p class="sec-note">Autonomous driving, perception, vehicle reverse engineering, safety and agents. Filter by domain.</p>
     </div>
@@ -707,11 +873,11 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
   </div>
 </section>
 
-<!-- 03 / RESEARCH -->
+<!-- 04 / RESEARCH -->
 <section class="section" id="research">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">03 / Research</span>
+      <span class="sec-num">04 / Research</span>
       <h2 class="sec-title">Three research threads</h2>
       <p class="sec-note">One published paper, and two lines of applied research running in the field.</p>
     </div>
@@ -796,11 +962,11 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
   </div>
 </section>
 
-<!-- 04 / FIELD NOTES -->
+<!-- 05 / FIELD NOTES -->
 <section class="section" id="field">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">04 / Field notes</span>
+      <span class="sec-num">05 / Field notes</span>
       <h2 class="sec-title">Systems, running</h2>
       <p class="sec-note">Recorded walkthroughs: real hardware, real roads, unedited failure modes included.</p>
     </div>
@@ -893,11 +1059,11 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
   </div>
 </section>
 
-<!-- 05 / ABOUT -->
+<!-- 06 / ABOUT -->
 <section class="section" id="about">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">05 / About</span>
+      <span class="sec-num">06 / About</span>
       <h2 class="sec-title">Sherin Joseph Roy</h2>
       <p class="sec-note">Bangalore, India. Co-founder at DeepMost AI.</p>
     </div>
@@ -931,6 +1097,10 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
 
         <div class="stack">
           <div class="stack__col">
+            <p class="stack__h">Rig</p>
+            <ul><li>GMSL2 cameras</li><li>GNSS RTK / NTRIP</li><li>Xsens MTi IMU</li><li>PPS hardware sync</li><li>MCAP / Foxglove</li></ul>
+          </div>
+          <div class="stack__col">
             <p class="stack__h">Perception</p>
             <ul><li>YOLOv8 / RT-DETR</li><li>ByteTrack</li><li>ArcFace / ReID</li><li>OpenCV</li><li>PyTorch</li></ul>
           </div>
@@ -956,11 +1126,11 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
   </div>
 </section>
 
-<!-- 06 / CONTACT -->
+<!-- 07 / CONTACT -->
 <section class="section" id="contact">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">06 / Contact</span>
+      <span class="sec-num">07 / Contact</span>
       <h2 class="sec-title">Get in touch</h2>
       <p class="sec-note">Open to collaboration on autonomy, perception and vehicle systems.</p>
     </div>
