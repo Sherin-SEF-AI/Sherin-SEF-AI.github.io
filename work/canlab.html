@@ -176,6 +176,10 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
     <li><strong>Export</strong>: build the DBC and write it out.</li>
   </ul>
 </div>
+<figure class="shot reveal">
+  <img src="../images/shots/canlab-frames.webp" alt="CanLab frame view: live CAN frames listed per arbitration ID with changing bytes highlighted" loading="lazy" width="1280" height="883">
+  <figcaption>Frame view. Every arbitration ID on the bus, with the bytes that changed since the last frame highlighted, which is where signal boundaries start to show themselves.</figcaption>
+</figure>
 
   </div>
 </section>
@@ -188,6 +192,10 @@ gtag('js',new Date());gtag('config','G-D5H3C7Y2V0');
       
     </div>
     <div class="table-scroll"><table class="dtable"><thead><tr><th>Area</th><th>What it covers</th></tr></thead><tbody><tr><td>Analysis</td><td>Frame and signal inspection, counter and checksum detection, signal boundary search, DBC build and export</td></tr><tr><td>Diagnostics</td><td>UDS, ISO-TP, J1939, OBD-II, XCP, DoIP</td></tr><tr><td>Bench only</td><td>Frame injection, replay, fuzzing, and a MitM gateway</td></tr><tr><td>Interface</td><td>PyQt6 desktop application, Python 3.11+</td></tr><tr><td>Quality</td><td>Covered by an automated test suite</td></tr><tr><td>Licence</td><td>MIT</td></tr></tbody></table></div>
+<figure class="shot reveal">
+  <img src="../images/shots/canlab-dbc.webp" alt="CanLab DBC builder: signal editor with bit layout matrix, scale, offset and value type" loading="lazy" width="1280" height="883">
+  <figcaption>DBC builder. Signal definition with the bit-layout matrix, byte order, scale, offset and range, exported straight to a DBC.</figcaption>
+</figure>
   </div>
 </section>
 
