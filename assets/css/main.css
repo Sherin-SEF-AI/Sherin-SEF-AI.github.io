@@ -616,6 +616,75 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.12; letter-spacing: -.022em; }
   .rung__sys { grid-column: 2; padding-top: .55rem; }
 }
 
+/* --- 7c. Downloads ------------------------------------------------------- */
+
+.dl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  gap: 1rem;
+}
+.dl {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.4rem 1.25rem;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s var(--ease);
+}
+.dl::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--cat, var(--cyan));
+  opacity: .85;
+}
+.dl:hover { border-color: var(--line-hi); }
+.dl__top { display: flex; align-items: center; gap: .75rem; margin-bottom: .65rem; }
+.dl__ver {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  color: var(--fg-mute);
+}
+.dl__name { font-size: 1.125rem; margin-bottom: .45rem; }
+.dl__desc { font-size: .875rem; color: var(--fg-dim); line-height: 1.58; flex: 1; }
+.dl__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem .5rem;
+  margin-top: 1rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .06em;
+  color: var(--fg-mute);
+}
+.dl__meta span::after { content: " ·"; color: var(--line-hi); }
+.dl__meta span:last-child::after { content: ""; }
+.dl__act { display: flex; align-items: center; gap: .9rem; margin-top: 1rem; flex-wrap: wrap; }
+.dl__act .btn { padding: .55rem .9rem; }
+.dl__act a:not(.btn) {
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.dl__act a:not(.btn):hover { color: var(--fg); }
+.dl__warn {
+  margin-top: .75rem;
+  font-family: var(--font-mono);
+  font-size: .5625rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
 /* --- 8. Research --------------------------------------------------------- */
 
 .paper {
@@ -1098,7 +1167,8 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.12; letter-spacing: -.022em; }
   .link-cell:last-child { border-bottom: 0; }
 }
 
-@media (max-width: 760px) {
+/* Seven nav items stop fitting well before the layout breakpoint. */
+@media (max-width: 900px) {
   html { scroll-padding-top: 4.75rem; }
   .nav__toggle { display: grid; }
   .nav__links {
@@ -1120,6 +1190,9 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.12; letter-spacing: -.022em; }
   .nav__links a { display: block; padding: .9rem 0; font-size: .75rem; }
   .nav__links a.active::after { display: none; }
   .nav__tools { margin-left: auto; }
+}
+
+@media (max-width: 760px) {
   .work-grid { grid-template-columns: 1fr; }
   .sec-note { margin-left: 0; max-width: none; }
   .sec-num { min-width: 100%; }
